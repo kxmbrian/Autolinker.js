@@ -172,6 +172,12 @@ export class UrlMatcher extends Matcher {
 			if( offset > 0 && prevChar === '@' ) {
 				continue;
 			}
+			if( offset > 0 && prevChar === '_' ) {
+				continue;
+			}
+			if( offset > 0 && prevChar === '/' ) {
+				continue;
+			}
 
 			// If it's a protocol-relative '//' match, but the character before the '//'
 			// was a word character (i.e. a letter/number), then we found the '//' in the
