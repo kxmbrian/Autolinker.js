@@ -124,6 +124,13 @@ describe( "Autolinker.matcher.Url", function() {
 			expect( othermatches.length ).toBe( 0 );
 		});
 
+		it( 'should not match file names', function() {
+			let matches = matcher.parseMatches( '/path/to/some/file.sh' );
+			let othermatches = matcher.parseMatches( 'cool_script.sh' );
+
+			expect( matches.length ).toBe( 0 );
+			expect( othermatches.length ).toBe( 0 );
+		});
 
 		it( 'should match an address with multiple dots in path string', function() {
 			var matches = matcher.parseMatches( 'https://gitlab.example.com/space/repo/compare/master...develop' );
